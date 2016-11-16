@@ -30,3 +30,7 @@ JwtResponse rsp = client.refresh {
     refreshToken = 'xxxxxxxxxxx'
 }
 ````
+
+# Bugs
+
+To report any bug, please use the project [Issues](http://github.com/sdelamo/groovy-client-grails-spring-security-rest/issues) section on GitHub.
