@@ -1,7 +1,25 @@
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.0"
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+    }
+}
+
+version "0.1-SNAPSHOT"
+group 'org.grails.plugins'
+
 apply plugin: 'groovy'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven-publish'
+apply plugin: "com.jfrog.artifactory"
 apply plugin: 'codenarc'
 
 repositories {
+    mavenLocal()
     jcenter()
 }
 
@@ -27,4 +45,31 @@ codenarcTest {
 
 test {
     systemProperties System.properties
+}
+
+
+bintray {
+    pkg {
+        name = "$rootProject.name"
+        issueTrackerUrl = "https://github.com/sdelamo/$rootProject.name/issues"
+        vcsUrl = "https://github.com/sdelamo/$rootProject.name"
+        version {
+            attributes = [:]
+            name = project.version
+        }
+    }
+}
+
+artifactory {
+    contextUrl = 'http://oss.jfrog.org'
+    publish {
+        repository {
+            repoKey = 'oss-snapshot-local'
+            username = System.getenv("BINTRAY_USER") ?: project.bintrayUser
+            password = System.getenv("BINTRAY_KEY") ?: project.bintrayKey
+        }
+        defaults {
+            publications('maven')
+        }
+    }
 }
