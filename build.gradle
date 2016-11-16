@@ -52,6 +52,8 @@ bintray {
     user = System.getenv("BINTRAY_USER") ?: project.bintrayUser
     key = System.getenv("BINTRAY_KEY") ?: project.bintrayKey
     pkg {
+        licenses = ['Apache-2.0']
+        repo = 'maven'
         name = "$rootProject.name"
         issueTrackerUrl = "https://github.com/sdelamo/$rootProject.name/issues"
         vcsUrl = "https://github.com/sdelamo/$rootProject.name"
