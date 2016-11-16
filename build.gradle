@@ -9,7 +9,7 @@ buildscript {
     }
 }
 
-version "0.3.2"
+version "0.3.3"
 group 'org.grails.plugins'
 
 apply plugin: 'groovy'
@@ -49,7 +49,6 @@ test {
 
 
 bintray {
-    repoName = rootProject.name
     user = System.getenv("BINTRAY_USER") ?: project.bintrayUser
     key = System.getenv("BINTRAY_KEY") ?: project.bintrayKey
     pkg {
