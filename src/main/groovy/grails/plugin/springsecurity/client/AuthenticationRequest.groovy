@@ -1,6 +1,5 @@
 package grails.plugin.springsecurity.client
 
-import groovy.json.JsonOutput
 import groovy.transform.CompileStatic
 
 @CompileStatic
@@ -18,18 +17,14 @@ class AuthenticationRequest {
         "${serverUrl ?: ''}${path}" as String
     }
 
-    String jsonCredentials() {
-        JsonOutput.toJson(credentials())
-    }
-
     Map<String, List<String>> queryParameters() {
         Map<String, List<String>> m = [:]
-        credentials().each { k, v -> m.put(k,[v]) }
+        credentials().each { k, v -> m.put(k, [v]) }
         m
     }
 
     Map<String, String> credentials() {
-        def m = [:] as Map<String, String>
+        def m = [:]
         m.put(usernamePropertyName, username)
         m.put(passwordPropertyName, password)
         m

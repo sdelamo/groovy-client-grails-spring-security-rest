@@ -60,22 +60,26 @@ class GrailsSpringSecurityRestClient {
         if ( response.status == 200 ) {
             Map json = response.getEntity(Map)
             return jwtResponseOKWithMap(json)
+        }
 
-        } else if ( response.status == 401 ) {
+        if ( response.status == 401 ) {
             return new JwtResponseUnauthorized()
+        }
 
-        } else if ( response.status == 403 ) {
+        if ( response.status == 403 ) {
             return new JwtResponseForbidden()
+        }
 
-        } else if ( response.status == 400) {
+        if ( response.status == 400) {
             return new JwtResponseBadRequest()
         }
+
         null
     }
 
     @CompileStatic(TypeCheckingMode.SKIP)
     static JwtResponseOK jwtResponseOKWithMap(Map json) {
-        return new JwtResponseOK(jwt: new Jwt(username: json.username,
+        new JwtResponseOK(jwt: new Jwt(username: json.username,
                 roles: json.roles,
                 tokenType: json.token_type,
                 accessToken: json.access_token,

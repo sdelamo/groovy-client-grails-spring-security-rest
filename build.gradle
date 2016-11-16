@@ -1,4 +1,5 @@
 apply plugin: 'groovy'
+apply plugin: 'codenarc'
 
 repositories {
     jcenter()
@@ -8,6 +9,20 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.7'
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
     compile "com.budjb:http-requests-jersey1:1.0.2"
+}
+
+codenarc {
+    toolVersion = '0.25.2'
+}
+
+codenarcMain {
+    ignoreFailures false
+    configFile file("${rootProject.projectDir}/config/codenarc/codenarc.groovy")
+}
+
+codenarcTest {
+    ignoreFailures false
+    configFile file("${rootProject.projectDir}/config/codenarc/codenarcTest.groovy")
 }
 
 test {

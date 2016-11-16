@@ -17,12 +17,12 @@ class RefreshRequest {
 
     Map<String, List<String>> queryParameters() {
         Map<String, List<String>> m = [:]
-        params().each { k, v -> m.put(k,[v]) }
+        params().each { k, v -> m.put(k, [v]) }
         m
     }
 
     Map<String, String> params() {
-        def m = [:] as Map<String, String>
+        def m = [:]
         m.put(refreshTokenPropertyName, refreshToken)
         m.put(grantTypePropertyName, grantType)
         m
