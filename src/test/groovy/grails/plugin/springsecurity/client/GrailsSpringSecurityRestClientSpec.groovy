@@ -5,6 +5,7 @@ import spock.lang.Specification
 
 class GrailsSpringSecurityRestClientSpec extends Specification {
 
+    @SuppressWarnings('Instanceof')
     @IgnoreIf({ !System.getProperty('username') || !System.getProperty('password') || !System.getProperty('server') })
     def "test login"() {
 
