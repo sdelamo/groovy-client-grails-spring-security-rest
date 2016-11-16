@@ -9,7 +9,7 @@ buildscript {
     }
 }
 
-version "0.3"
+version "0.3.1"
 group 'org.grails.plugins'
 
 apply plugin: 'groovy'
@@ -49,6 +49,8 @@ test {
 
 
 bintray {
+    user = System.getenv("BINTRAY_USER") ?: project.bintrayUser
+    key = System.getenv("BINTRAY_KEY") ?: project.bintrayKey
     pkg {
         name = "$rootProject.name"
         issueTrackerUrl = "https://github.com/sdelamo/$rootProject.name/issues"
