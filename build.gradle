@@ -9,17 +9,18 @@ buildscript {
     }
 }
 
-version "0.3.5"
-group 'org.grails.plugins'
+version "0.3.6"
+group 'groovycalamari.libs'
 
 apply plugin: 'groovy'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'maven-publish'
-apply plugin: "com.jfrog.artifactory"
-apply plugin: 'codenarc'
+apply plugin: 'maven'
+
+apply from: "$rootDir/gradle/publishing.gradle"
+apply from: "$rootDir/gradle/credentials.gradle"
+apply from: "$rootDir/gradle/bintray.gradle"
+apply from: "$rootDir/gradle/codenarc.gradle"
 
 repositories {
-    mavenLocal()
     jcenter()
 }
 
@@ -29,59 +30,12 @@ dependencies {
     compile "com.budjb:http-requests-jersey1:1.0.2"
 }
 
-codenarc {
-    toolVersion = '0.25.2'
-}
-
-codenarcMain {
-    ignoreFailures false
-    configFile file("${rootProject.projectDir}/config/codenarc/codenarc.groovy")
-}
-
-codenarcTest {
-    ignoreFailures false
-    configFile file("${rootProject.projectDir}/config/codenarc/codenarcTest.groovy")
-}
-
 test {
     systemProperties System.properties
 }
 
-
-bintray {
-    user = System.getenv("BINTRAY_USER") ?: project.bintrayUser
-    key = System.getenv("BINTRAY_KEY") ?: project.bintrayKey
-    pkg {
-        licenses = ['Apache-2.0']
-        repo = 'maven'
-        name = "$rootProject.name"
-        issueTrackerUrl = "https://github.com/sdelamo/$rootProject.name/issues"
-        vcsUrl = "https://github.com/sdelamo/$rootProject.name"
-        version {
-            attributes = [:]
-            name = project.version
-        }
-    }
-}
-
-artifactory {
-    contextUrl = 'http://oss.jfrog.org'
-    publish {
-        repository {
-            repoKey = 'oss-snapshot-local'
-            username = System.getenv("BINTRAY_USER") ?: project.bintrayUser
-            password = System.getenv("BINTRAY_KEY") ?: project.bintrayKey
-        }
-        defaults {
-            publications('mavenJava')
-        }
-    }
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
+task release {
+    description = 'Releases a version of the plugin on Bintray'
+    group = 'Publishing'
+    dependsOn bintrayUpload
 }
