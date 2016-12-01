@@ -26,22 +26,21 @@ bintray {
     publications = ['mavenJava']
     pkg {
         repo = attr 'project_bintray_repo'
-        userOrg = attr 'project_bintray_user_org'
-        name = project.name
+        name = attr 'name'
         desc = attr 'project_description'
         licenses = ['Apache-2.0']
-        labels = ['grails','groovy', 'rest']
+        labels = ['grails','groovy', 'spring', 'rest']
         publicDownloadNumbers = true
         version {
             repo = attr 'project_bintray_repo'
-            name = project.version
+            name = attr 'name'
             desc = attr 'project_description'
             licenses = ['Apache-2.0']
-            labels = ['aws', 'groovy']
+            labels = ['geb', 'groovy', 'webbots']
             websiteUrl = attr 'project_url'
             issueTrackerUrl = attr 'project_issues_url'
             vcsUrl = attr 'project_scm'
-            vcsTag = project.version
+            vcsTag = attr 'version'
             attributes = [
                     'gradle-plugin': "${attr 'group'}:'${attr 'name'}"
             ]
