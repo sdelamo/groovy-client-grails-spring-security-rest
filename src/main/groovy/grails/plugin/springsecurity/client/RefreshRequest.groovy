@@ -11,6 +11,31 @@ class RefreshRequest {
     String refreshTokenPropertyName = 'refresh_token'
     String grantTypePropertyName = 'grant_type'
 
+
+    void path(String str) {
+        this.path  = str
+    }
+
+    void serverUrl(String str) {
+        this.serverUrl = str
+    }
+
+    void refreshToken(String str) {
+        this.refreshToken = str
+    }
+
+    void grantType(String str) {
+        this.grantType = str
+    }
+
+    void refreshTokenPropertyName(String str) {
+        refreshTokenPropertyName = str
+    }
+
+    void grantTypePropertyName(String str) {
+        grantTypePropertyName = str
+    }
+
     String endpoint() {
         "${serverUrl ?: ''}${path}" as String
     }

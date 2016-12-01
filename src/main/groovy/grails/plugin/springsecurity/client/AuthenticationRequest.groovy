@@ -10,8 +10,36 @@ class AuthenticationRequest {
     String serverUrl
     String username
     String password
-
     boolean useJsonCredentials
+
+    void useJsonCredentials(boolean useJsonCredentials) {
+        this.useJsonCredentials = useJsonCredentials
+    }
+
+    void serverUrl(String str) {
+        this.serverUrl = str
+    }
+
+    void username(String str) {
+        this.username = str
+    }
+
+    void password(String str) {
+        this.password = str
+    }
+
+    void path(String str) {
+        this.path = str
+    }
+
+    void usernamePropertyName(String str) {
+        usernamePropertyName = str
+    }
+
+    void passwordPropertyName(String str) {
+        passwordPropertyName = str
+    }
+
 
     String endpoint() {
         "${serverUrl ?: ''}${path}" as String
