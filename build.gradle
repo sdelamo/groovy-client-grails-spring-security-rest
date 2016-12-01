@@ -1,4 +1,3 @@
-
 buildscript {
     repositories {
         jcenter()
@@ -9,7 +8,7 @@ buildscript {
     }
 }
 
-version "0.3.7"
+version "0.3.8"
 group 'groovycalamari.libs'
 
 apply plugin: 'groovy'
