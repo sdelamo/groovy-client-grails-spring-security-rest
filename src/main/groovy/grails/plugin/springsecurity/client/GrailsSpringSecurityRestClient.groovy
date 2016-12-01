@@ -14,14 +14,18 @@ class GrailsSpringSecurityRestClient {
     HttpClient client = new JerseyHttpClientFactory().createHttpClient()
 
     JwtResponse refresh(@DelegatesTo(RefreshRequest) Closure refreshRequestClosure) {
-        refreshRequestClosure.delegate = refreshRequest
-        refreshRequestClosure()
+        Closure cls = refreshRequestClosure.clone() as Closure
+        cls.resolveStrategy = Closure.DELEGATE_FIRST
+        cls.delegate = refreshRequest
+        cls()
         executeRefresh()
     }
 
     JwtResponse login(@DelegatesTo(AuthenticationRequest) Closure authenticationRequestClosure) {
-        authenticationRequestClosure.delegate = authenticationRequest
-        authenticationRequestClosure()
+        Closure cls = authenticationRequestClosure.clone() as Closure
+        cls.resolveStrategy = Closure.DELEGATE_FIRST
+        cls.delegate = authenticationRequest
+        cls()
         executeLogin()
     }
 

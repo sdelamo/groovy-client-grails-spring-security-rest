@@ -9,7 +9,7 @@ buildscript {
     }
 }
 
-version "0.3.6"
+version "0.3.7"
 group 'groovycalamari.libs'
 
 apply plugin: 'groovy'
