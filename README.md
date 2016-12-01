@@ -2,7 +2,7 @@ Groovy Client - Grails Spring Security Rest Plugin
 ================
 
 [![Build Status](https://travis-ci.org/sdelamo/groovy-client-grails-spring-security-rest.svg?branch=master)](https://travis-ci.org/sdelamo/groovy-client-grails-spring-security-rest)
-[![Download](https://api.bintray.com/packages/sdelamo/plugins/groovy-client-grails-spring-security-rest/images/download.svg)](https://bintray.com/sdelamo/plugins/groovy-client-grails-spring-security-rest/_latestVersion)
+[![Download](https://api.bintray.com/packages/sdelamo/libs/groovy-client-grails-spring-security-rest/images/download.svg)](https://bintray.com/sdelamo/libs/groovy-client-grails-spring-security-rest/_latestVersion)
 
 
 # Introduction 
