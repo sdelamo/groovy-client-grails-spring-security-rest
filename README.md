@@ -16,9 +16,9 @@ This is a groovy client to interact with the [Grails Spring Security Rest Plugin
 ````
 def client = new GrailsSpringSecurityRestClient()
 JwtResponse rsp = client.login {
-    serverUrl = 'http://yourgrailsapp.com'
-    username = 'joe@gmail.com'
-    password = 'secret'
+    serverUrl 'http://yourgrailsapp.com'
+    username 'joe@gmail.com'
+    password 'secret'
 }
 ````
 
@@ -26,8 +26,8 @@ JwtResponse rsp = client.login {
 
 ````
 JwtResponse rsp = client.refresh {
-    serverUrl = 'http://yourgrailsapp.com'
-    refreshToken = 'xxxxxxxxxxx'
+    serverUrl 'http://yourgrailsapp.com'
+    refreshToken 'xxxxxxxxxxx'
 }
 ````
 
