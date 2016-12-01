@@ -12,34 +12,40 @@ class AuthenticationRequest {
     String password
     boolean useJsonCredentials
 
+    @SuppressWarnings('ConfusingMethodName')
     void useJsonCredentials(boolean useJsonCredentials) {
         this.useJsonCredentials = useJsonCredentials
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void serverUrl(String str) {
         this.serverUrl = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void username(String str) {
         this.username = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void password(String str) {
         this.password = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void path(String str) {
         this.path = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void usernamePropertyName(String str) {
         usernamePropertyName = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void passwordPropertyName(String str) {
         passwordPropertyName = str
     }
-
 
     String endpoint() {
         "${serverUrl ?: ''}${path}" as String

@@ -11,27 +11,32 @@ class RefreshRequest {
     String refreshTokenPropertyName = 'refresh_token'
     String grantTypePropertyName = 'grant_type'
 
-
+    @SuppressWarnings('ConfusingMethodName')
     void path(String str) {
         this.path  = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void serverUrl(String str) {
         this.serverUrl = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void refreshToken(String str) {
         this.refreshToken = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void grantType(String str) {
         this.grantType = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void refreshTokenPropertyName(String str) {
         refreshTokenPropertyName = str
     }
 
+    @SuppressWarnings('ConfusingMethodName')
     void grantTypePropertyName(String str) {
         grantTypePropertyName = str
     }
