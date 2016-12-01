@@ -9,7 +9,7 @@ buildscript {
 }
 
 version "0.3.9"
-group 'groovycalamari.libs'
+group "sdelamo.libs"
 
 apply plugin: 'groovy'
 apply plugin: 'maven'

@@ -26,14 +26,14 @@ bintray {
     publications = ['mavenJava']
     pkg {
         repo = attr 'project_bintray_repo'
-        name = attr 'name'
+        name = project.name
         desc = attr 'project_description'
         licenses = ['Apache-2.0']
         labels = ['grails','groovy', 'spring', 'rest']
         publicDownloadNumbers = true
         version {
             repo = attr 'project_bintray_repo'
-            name = attr 'name'
+            name = project.version
             desc = attr 'project_description'
             licenses = ['Apache-2.0']
             labels = ['geb', 'groovy', 'webbots']
