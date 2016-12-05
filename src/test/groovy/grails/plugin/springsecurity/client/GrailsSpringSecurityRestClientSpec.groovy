@@ -12,11 +12,11 @@ class GrailsSpringSecurityRestClientSpec extends Specification {
         when:
         def client = new GrailsSpringSecurityRestClient()
         JwtResponse rsp = client.login {
-            serverUrl = System.getProperty('server')
-            path = '/oauth/token'
+            serverUrl System.getProperty('server')
+            path '/oauth/token'
             useJsonCredentials = false
-            username = System.getProperty('username')
-            password = System.getProperty('password')
+            username System.getProperty('username')
+            password System.getProperty('password')
         }
 
         then:
@@ -36,11 +36,11 @@ class GrailsSpringSecurityRestClientSpec extends Specification {
 
         when:
         rsp = client.login {
-            serverUrl = System.getProperty('server')
-            path = '/oauth/token'
-            useJsonCredentials = false
-            username = System.getProperty('username')
-            password = 'bogus'
+            serverUrl System.getProperty('server')
+            path '/oauth/token'
+            useJsonCredentials false
+            username System.getProperty('username')
+            password 'bogus'
         }
 
         then:
@@ -48,9 +48,9 @@ class GrailsSpringSecurityRestClientSpec extends Specification {
 
         when:
         rsp = client.refresh {
-            serverUrl = System.getProperty('server')
-            path = '/oauth/token'
-            refreshToken = jwt.refreshToken
+            serverUrl System.getProperty('server')
+            path '/oauth/token'
+            refreshToken jwt.refreshToken
         }
 
         then:

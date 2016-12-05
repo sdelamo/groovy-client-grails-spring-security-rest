@@ -9,6 +9,25 @@ Groovy Client - Grails Spring Security Rest Plugin
 
 This is a groovy client to interact with the [Grails Spring Security Rest Plugin](https://github.com/alvarosanchez/grails-spring-security-rest)
 
+# Installation 
+
+
+````
+repositories {
+    jcenter()
+    ...
+    ..
+    .
+}
+
+dependencies {
+    ...
+    ..
+    .
+    compile 'sdelamo.libs:groovy-client-grails-spring-security-rest:0.3.9'
+}
+````
+
 
 # Usage
 
